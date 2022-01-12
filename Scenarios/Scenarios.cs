@@ -6,12 +6,12 @@ using NUnit.Framework;
 using MoneyCorp.Base;
 using MoneyCorp.Steps;
 using MoneyCorp.TestData;
-using Assert = NUnit.Framework.Assert;w
+using Assert = NUnit.Framework.Assert;
 
 namespace MoneyCorp.Scenarios
 {
     /// <summary>
-    /// Summary description for MoneyCorp Scenarios
+    /// Summary description for MoneyCorp Scenarios, this includes calling all the methods which are defined on MoneyCorp Page Class file and Assertions as well.
     /// </summary>
     [TestClass]
     public class Scenarios
@@ -23,12 +23,10 @@ namespace MoneyCorp.Scenarios
         [Test]
         public void ValidateMoneyCorpSite()
         {
-            
-	
-            //Method Calling
+           //Method Calling
             obj2.LaunchChrome(System.Configuration.ConfigurationManager.AppSettings["URL"], System.Configuration.ConfigurationManager.AppSettings["ChromePath"]);
 	    obj2.AcceptCookies();   //accept_cookies:to accept the cookies modal dialog
-	    obj2.ClickAction(obj2.languageIconElement);  //calling element within generic method
+	    obj2.ClickAction(obj2.languageIconElement);  //Taking Action on elements with generic method
 	    obj2.ScrollToUSAEnglishOptionAndClick();
 	    obj2.ScrollTofindOutMoreButtonAndClick();
 	    Assert.IsTrue(obj2.ValidatePageURL(obj1.foreignExchangeSolutionPageURL, User has arrived on Foreign exchange solutions Page)); //Assertions added
@@ -36,14 +34,9 @@ namespace MoneyCorp.Scenarios
             obj2.EnterText(obj2.searchTextFieldElement, obj1.searchText)
 	    obj2.ClickEnter(obj2.searchTextFieldElement)
 	    Assert.IsTrue(obj2.ValidatePageURL(obj1.internationapPaymentsPageURL, User has arrived on International Payment Page)); //Assertions added
-	    Assert.IsTrue(obj2.ValidateLinks(), User has validated the links);
-	    obj2.QuitBrowser();
-	     	
-	    		
+	    Assert.IsTrue(obj2.ValidateLinks(), User has validated the links); //Assertions added
+	    obj2.QuitBrowser(); 	   		
          }
-
-
-        
 
     }
 }
